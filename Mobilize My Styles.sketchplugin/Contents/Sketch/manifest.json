@@ -1,0 +1,18 @@
+
+{
+    "name" : "Mobile-ize Your Styles",
+    "identifier" : "com.sketchapp.examples.mobileize",
+    "version" : "1.0.0",
+    "description" : "Pretty much the smallest example Sketch Plugin you could have.",
+    "authorEmail" : "michelle.boisson@gmail.com",
+    "author" : "Michelle Boisson",
+    "commands" : [
+    {
+      "script" : "script.js",
+      "handler" : "onRun",
+      "shortcut" : "shift cmd y",
+      "name" : "Mobile-ize your styles",
+      "identifier" : "mobileize"
+    }
+  ]
+}
