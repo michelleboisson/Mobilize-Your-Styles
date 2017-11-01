@@ -8,9 +8,13 @@ function onRun(context) {
 
    //reference the sketch document
 	 //var doc = context.document;
-   var doc = sketch.selectedDocument
-   var page = doc.selectedPage
+   var doc = sketch.selectedDocument;
+   var page = doc.selectedPage;
    var selection = context.selection;
+
+   var textStyles = doc.sketchObject.documentData().MSDocumentData;
+   //log("textStyles: "+textStyles);
+
    //make sure something is selected
 	if(selection.count() == 0){
 		context.document.showMessage("Please select something.");
@@ -30,8 +34,8 @@ function onRun(context) {
           //log(layers[i].class());
           if (layers[i].class() == "MSTextLayer"){
             //replace style with mobile style, if it exists
-            log(layers[i].class() +" "+ layers[i].style().textStyle());
-            //var textStyles = doc.sketchObject.documentData().layerTextStylesGeneric().objects();
+            log(layers[i].class() +" "+ layers[i].style().textStyle().styleWithAttributes);
+            dump_obj(layers[i].style());
 
           }
         }
@@ -46,7 +50,7 @@ function onRun(context) {
 function dump_obj(obj){
   log("#####################################################################################")
   log("## Dumping object " + obj )
-  log("## obj class is: " + [obj className])
+  log("## obj class is: " + [obj.class()])
   log("#####################################################################################")
 
   log("obj.properties:")
